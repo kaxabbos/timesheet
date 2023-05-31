@@ -1,2 +1,6 @@
-# Project exclude paths
-/target/
+.idea
+target
+src/main/resources/img/teachers/*
+!src/main/resources/img/teachers
+src/main/resources/img/subjects/*
+!src/main/resources/img/subjects
