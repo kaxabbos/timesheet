@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Расписание</title>
+</head>
+<head th:insert="blocks/head :: head"></head>
+<body>
+<div th:insert="blocks/nav :: nav"></div>
+<main class="page projects-page mt-5">
+    <section class="portfolio-block projects-with-sidebar">
+        <div class="container">
+            <div class="heading">
+                <h2>Расписание</h2>
+            </div>
+            <div class="row">
+                <div class="col-3 project-sidebar-card" th:each="o : ${teacher.subjects}">
+                    <a th:href="'/subjects/' + ${o.id}">
+                        <img class="img-fluid image scale-on-hover" th:src="'/img/' + ${o.photo}"
+                             style="border-radius: 10px;">
+                    </a>
+                    <p class="lead" style="margin-bottom: 5px;">Номер группы:&nbsp;<span th:text="${o.name}"></span>
+                    </p>
+                    <p class="lead" style="margin-bottom: 5px;">Номер недели:&nbsp;&nbsp;<span th:text="${o.price}"></span>
+                    </p>
+                    <p class="lead" style="margin-bottom: 5px;">Преподаватель:&nbsp;&nbsp;<span th:text="${o.teacher.teacher.fio}"></span></p>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+<script src="/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.6.1/pikaday.min.js"></script>
+<script src="/js/theme.js"></script>
+</body>
+
+</html>

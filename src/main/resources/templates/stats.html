@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Аналитика</title>
+</head>
+<head th:insert="blocks/head :: head"></head>
+<body>
+<div th:insert="blocks/nav :: nav"></div>
+<main class="page projects-page mt-5">
+    <section class="portfolio-block projects-with-sidebar">
+        <div class="container">
+            <div class="heading">
+                <h2 style="margin-bottom: 30px;">Аналитика</h2>
+                <div class="row d-xl-flex align-items-xl-center" style="margin-bottom: 10px;">
+                    <div class="col d-xl-flex justify-content-xl-center">
+                        <h3>ФИО</h3>
+                    </div>
+                    <div class="col d-xl-flex justify-content-xl-center">
+                        <h3>Количество предметов</h3>
+                    </div>
+
+                </div>
+                <div th:each="i : ${teachers}" class="row d-xl-flex align-items-xl-center" style="margin-bottom: 10px;">
+                    <div class="col d-xl-flex justify-content-xl-center">
+                        <a th:href="'/stats/' + ${i.id}">
+                            <p class="lead" style="font-weight: bold;color: var(--bs-black);"
+                               th:text="${i.teacher.fio}"></p>
+                        </a>
+                    </div>
+                    <div class="col">
+                        <p class="lead d-xl-flex justify-content-xl-end"
+                           style="font-weight: bold;color: var(--bs-black);" th:text="${i.subjects.size()}"></p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+<script src="/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.6.1/pikaday.min.js"></script>
+<script src="/js/theme.js"></script>
+</body>
+
+</html>
